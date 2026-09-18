@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Guided diagnostics for car-audio amplifier repair.">
+  <title>AmpLab — Car Amplifier Diagnostics</title><link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="AmpLab home"><span class="brand-mark">A</span><span>AmpLab</span></a>
+    <span class="status"><i></i> Offline ready</span>
+    <div class="top-actions"><button class="btn btn-ghost" id="newCaseBtn">New case</button><button class="btn btn-primary" id="saveBtn">Save case</button></div>
+  </header>
+  <main class="shell">
+    <aside class="sidebar" aria-label="Case navigation">
+      <div class="case-label">Current repair</div><strong id="caseTitle">Untitled amplifier</strong><small id="caseId">New case</small>
+      <nav id="steps"></nav>
+      <div class="sidebar-note"><strong>Bench safety</strong><span>Use a fused, current-limited supply. Remove speakers before initial tests.</span></div>
+    </aside>
+    <section class="workspace">
+      <div class="page-heading"><div><span class="eyebrow" id="stepCount">Step 1 of 5</span><h1 id="pageTitle">Amplifier intake</h1><p id="pageSubtitle">Record what is on the bench before applying power.</p></div><button class="icon-btn" id="casesBtn" title="Saved cases" aria-label="Show saved cases">☷</button></div>
+      <div id="view" aria-live="polite"></div>
+      <footer class="step-footer"><button class="btn btn-ghost" id="backBtn">← Back</button><span id="autosaveState">Stored locally</span><button class="btn btn-primary" id="nextBtn">Continue <span>→</span></button></footer>
+    </section>
+  </main>
+  <dialog id="casesDialog"><div class="dialog-head"><div><span class="eyebrow">Workshop history</span><h2>Saved cases</h2></div><button class="icon-btn" id="closeCases" aria-label="Close">×</button></div><div id="caseList" class="case-list"></div></dialog>
+  <dialog id="guideDialog" class="guide-dialog"><div class="dialog-head"><div><span class="eyebrow">Beginner procedure</span><h2 id="guideTitle">How to perform this check</h2></div><button class="icon-btn" id="closeGuide" aria-label="Close">×</button></div><div id="guideBody" class="guide-body"></div></dialog>
+  <div class="toast" id="toast" role="status"></div><script src="app.js"></script>
+</body>
+</html>
